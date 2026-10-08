@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Systématisation – Amis et relations sociales</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px;
+    background: #f6f7f9;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    line-height: 1.6;
+}
+
+.app {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.main-header {
+    padding: 25px 28px;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg,#ff5b63 0%,#ff4a55 100%);
+    border-radius: 18px;
+    box-shadow: 0 5px 16px rgba(255,82,87,.18);
+    color: #ffffff;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.section {
+    margin-bottom: 42px;
+}
+
+.section-header {
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    background: #ff5257;
+    color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.07);
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.card {
+    padding: 24px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.06);
+}
+
+.consigne {
+    padding: 19px 21px;
+    margin-bottom: 20px;
+    background: #f3f6f8;
+    border-left: 5px solid #ff5257;
+    border-radius: 11px;
+}
+
+.consigne h3 {
+    margin: 0 0 7px;
+    font-size: 18px;
+}
+
+.consigne p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.segmented-control {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    padding: 5px;
+    margin-bottom: 25px;
+    background: #eeeeee;
+    border-radius: 12px;
+}
+
+.segment {
+    padding: 13px 10px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #555555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.segment:hover {
+    background: #f8dfe1;
+}
+
+.segment.active {
+    background: #ff5257;
+    color: #ffffff;
+    box-shadow: 0 2px 7px rgba(0,0,0,.12);
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.tab-panel h3 {
+    margin: 0 0 15px;
+    font-size: 22px;
+}
+
+.rule {
+    margin: 20px 0;
+    padding: 17px 19px;
+    background: #f3f6f8;
+    border-left: 5px solid #ff5257;
+    border-radius: 10px;
+}
+
+.rule strong {
+    color: #ff5257;
+}
+
+.example-box {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+}
+
+.example-box h4 {
+    margin: 0 0 14px;
+    font-size: 18px;
+}
+
+.sentence {
+    padding: 10px 13px;
+    margin-bottom: 8px;
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+}
+
+.transformation {
+    margin-top: 15px;
+    padding: 14px 16px;
+    background: #fff2f3;
+    border-radius: 9px;
+    font-size: 17px;
+}
+
+.highlight {
+    color: #ff5257;
+    font-weight: 700;
+}
+
+.more-examples {
+    margin-top: 22px;
+}
+
+.more-examples h4 {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.more-examples ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.more-examples li {
+    margin-bottom: 8px;
+}
+
+.optional-intro {
+    margin: 10px 0 18px;
+    padding: 18px 20px;
+    background: #fff2f3;
+    border-left: 5px solid #ff5257;
+    border-radius: 11px;
+}
+
+.optional-intro strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 18px;
+}
+
+.optional-intro p {
+    margin: 0;
+}
+
+.optional-details {
+    margin-bottom: 16px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.05);
+    overflow: hidden;
+}
+
+.optional-details summary {
+    position: relative;
+    padding: 19px 58px 19px 22px;
+    background: #ff5257;
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.optional-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.optional-details summary::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 22px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    border: 2px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.optional-details[open] summary::after {
+    content: "−";
+}
+
+.optional-content {
+    padding: 24px;
+}
+
+.optional-label {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 5px 10px;
+    background: #fff2f3;
+    color: #c83e45;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.image-card {
+    padding: 18px;
+}
+
+.image-link {
+    display: block;
+    text-decoration: none;
+}
+
+.resource-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    cursor: zoom-in;
+}
+
+.image-note {
+    margin: 12px 0 0;
+    text-align: center;
+    color: #666666;
+    font-size: 14px;
+}
+
+.bank {
+    margin: 20px 0;
+    padding: 17px 19px;
+    background: #fff2f3;
+    border-left: 5px solid #ff5257;
+    border-radius: 10px;
+}
+
+.quiz-title {
+    margin: 0 0 5px;
+    font-size: 21px;
+}
+
+.quiz-subtitle {
+    margin: 0 0 22px;
+    color: #666666;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    color: #666666;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.progress-track {
+    width: 100%;
+    height: 9px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    background: #eeeeee;
+    border-radius: 999px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #ff5257;
+    border-radius: 999px;
+    transition: width .3s ease;
+}
+
+.quiz-question {
+    display: none;
+}
+
+.quiz-question.active {
+    display: block;
+}
+
+.question-number {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: #ff5257;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.quiz-question h4 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.options {
+    display: grid;
+    gap: 10px;
+}
+
+.two-options {
+    grid-template-columns: 1fr 1fr;
+}
+
+.option {
+    position: relative;
+}
+
+.option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option label {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e1e5e8;
+    border-radius: 11px;
+    background: #fafafa;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.option label:hover {
+    border-color: #ff9da1;
+    background: #fff7f7;
+}
+
+.option input:checked + label {
+    border-color: #ff5257;
+    background: #fff2f3;
+    color: #d83f46;
+}
+
+.option label.correct {
+    border-color: #28a745;
+    background: #eef8f0;
+    color: #207a35;
+}
+
+.option label.incorrect {
+    border-color: #dc4c55;
+    background: #fff1f2;
+    color: #a72e36;
+}
+
+.feedback {
+    display: none;
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+.feedback.correct-feedback {
+    display: block;
+    background: #eef8f0;
+    border-left: 5px solid #28a745;
+}
+
+.feedback.incorrect-feedback {
+    display: block;
+    background: #fff2f3;
+    border-left: 5px solid #ff5257;
+}
+
+.warning {
+    display: none;
+    margin-top: 15px;
+    padding: 10px 13px;
+    background: #fff2f3;
+    border-left: 4px solid #ff5257;
+    border-radius: 7px;
+    color: #a62c32;
+    font-size: 14px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eeeeee;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 9px;
+    background: #ff5257;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #e9464c;
+}
+
+.results {
+    display: none;
+}
+
+.results-box {
+    padding: 24px;
+    text-align: center;
+    background: #fff2f3;
+    border-radius: 12px;
+}
+
+.score {
+    margin: 4px 0;
+    color: #ff5257;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.oral-box {
+    padding: 22px;
+    background: #fff2f3;
+    border-left: 5px solid #ff5257;
+    border-radius: 12px;
+}
+
+.oral-box h3 {
+    margin: 0 0 8px;
+    font-size: 19px;
+}
+
+.oral-box p {
+    margin: 0 0 14px;
+}
+
+.oral-question {
+    padding: 13px 15px;
+    margin-bottom: 9px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 9px;
+    font-size: 16px;
+}
+
+.oral-question:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+    body {
+        padding: 12px;
+    }
+
+    .main-header,
+    .card,
+    .optional-content {
+        padding: 20px;
+    }
+
+    .main-header h1 {
+        font-size: 23px;
+    }
+
+    .section-header h2 {
+        font-size: 20px;
+    }
+
+    .segmented-control {
+        grid-template-columns: 1fr;
+    }
+
+    .two-options {
+        grid-template-columns: 1fr;
+    }
+
+    .segment {
+        text-align: left;
+    }
+
+    .optional-details summary {
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <div class="main-header">
+        <h1>Systématisation</h1>
+    </div>
+
+
+    <section class="section">
+
+        <div class="section-header">
+            <h2>1. Les pronoms relatifs « qui » et « que »</h2>
+        </div>
+
+        <div class="consigne">
+            <h3>Consigne</h3>
+            <p>
+                Lisez les explications sur les pronoms relatifs « qui » et « que », puis observez la décomposition des exemples. Complétez ensuite les phrases avec le pronom relatif approprié : « qui » ou « que ». Comparez vos réponses en binômes, puis participez à la correction.
+            </p>
+        </div>
+
+        <div class="card">
+
+            <div class="segmented-control">
+
+                <button class="segment active" data-tab="qui" type="button">
+                    Le pronom relatif « qui »
+                </button>
+
+                <button class="segment" data-tab="que" type="button">
+                    Le pronom relatif « que »
+                </button>
+
+                <button class="segment" data-tab="exercices" type="button">
+                    Exercices
+                </button>
+
+            </div>
+
+
+            <div class="tab-panel active" id="qui">
+
+                <h3>Le pronom relatif « qui »</h3>
+
+                <p>
+                    « Qui » permet de relier deux phrases et d’éviter de répéter la même personne ou la même chose.
+                </p>
+
+                <div class="rule">
+                    Avec <strong>« qui »</strong>, un <strong>verbe</strong> continue directement après.
+                </div>
+
+                <div class="example-box">
+
+                    <h4>Exemple</h4>
+
+                    <div class="sentence">
+                        1. J’aime les personnes.
+                    </div>
+
+                    <div class="sentence">
+                        2. Les personnes sont honnêtes.
+                    </div>
+
+                    <p>On évite de répéter « les personnes » :</p>
+
+                    <div class="transformation">
+                        J’aime les personnes <span class="highlight">qui sont</span> honnêtes.
+                    </div>
+
+                </div>
+
+                <div class="more-examples">
+
+                    <h4>Autres exemples</h4>
+
+                    <ul>
+                        <li>J’ai un ami <span class="highlight">qui habite</span> à Montréal.</li>
+                        <li>Elle connaît une personne <span class="highlight">qui parle</span> quatre langues.</li>
+                        <li>J’aime les gens <span class="highlight">qui aiment</span> voyager.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="tab-panel" id="que">
+
+                <h3>Le pronom relatif « que »</h3>
+
+                <p>
+                    « Que » permet aussi de relier deux phrases et d’éviter de répéter la même personne ou la même chose.
+                </p>
+
+                <div class="rule">
+                    Avec <strong>« que »</strong>, un <strong>sujet</strong> continue après : je, tu, il, elle, nous, vous, ils, elles ou un nom.
+                </div>
+
+                <div class="example-box">
+
+                    <h4>Exemple</h4>
+
+                    <div class="sentence">
+                        1. J’aime les personnes.
+                    </div>
+
+                    <div class="sentence">
+                        2. Je rencontre les personnes au travail.
+                    </div>
+
+                    <p>On évite de répéter « les personnes » :</p>
+
+                    <div class="transformation">
+                        J’aime les personnes <span class="highlight">que je rencontre</span> au travail.
+                    </div>
+
+                </div>
+
+                <div class="more-examples">
+
+                    <h4>Autres exemples</h4>
+
+                    <ul>
+                        <li>C’est un ami <span class="highlight">que je connais</span> depuis longtemps.</li>
+                        <li>Voilà la personne <span class="highlight">que tu cherches</span>.</li>
+                        <li>C’est une activité <span class="highlight">que mes amis adorent</span>.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="tab-panel" id="exercices">
+
+                <h3>Exercices</h3>
+
+                <div class="consigne">
+                    <p>
+                        Complétez les phrases avec le pronom relatif qui convient : <strong>qui</strong> ou <strong>que</strong>.
+                    </p>
+                </div>
+
+                <div id="quizQuiQue">
+
+                    <div class="progress-info">
+                        <span>Votre progression</span>
+                        <span id="qqProgressText">1 / 10</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-bar" id="qqProgressBar" style="width:10%;"></div>
+                    </div>
+
+                    <div id="qqQuestions"></div>
+
+                    <div class="navigation">
+                        <button class="btn" id="qqActionBtn" type="button">
+                            Valider ma réponse
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="results" id="qqResults">
+
+                    <div class="results-box">
+
+                        <h3>Votre résultat</h3>
+
+                        <div class="score" id="qqScore">
+                            0 / 10
+                        </div>
+
+                        <p id="qqResultMessage"></p>
+
+                        <button class="btn" id="qqRestartBtn" type="button">
+                            Recommencer
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="optional-intro">
+            <strong>Activités facultatives</strong>
+            <p>
+                Les activités suivantes peuvent être proposées par l’enseignant en fonction du temps disponible.
+            </p>
+        </div>
+
+
+        <details class="optional-details">
+
+            <summary>
+                2. L’accord des adjectifs qualificatifs — Activité facultative
+            </summary>
+
+            <div class="optional-content">
+
+                <span class="optional-label">
+                    Facultative en fonction du temps
+                </span>
+
+                <div class="consigne">
+
+                    <h3>Consigne</h3>
+
+                    <p>
+                        Observez la fiche de vocabulaire. Repérez les différentes manières de former le féminin des adjectifs. Complétez ensuite les six phrases avec un adjectif de la banque. Accordez-le au masculin ou au féminin selon la personne décrite.
+                    </p>
+
+                </div>
+
+
+                <div class="card image-card">
+
+                    <a
+                        class="image-link"
+                        href="https://i.postimg.cc/Ss8W98Gp/French-Adjective-Agreement-Infographic.webp"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <img
+                            class="resource-image"
+                            src="https://i.postimg.cc/Ss8W98Gp/French-Adjective-Agreement-Infographic.webp"
+                            alt="Les adjectifs qualificatifs au singulier pour décrire le caractère">
+
+                    </a>
+
+                    <p class="image-note">
+                        Cliquez sur l’image pour l’agrandir.
+                    </p>
+
+                </div>
+
+
+                <div class="bank">
+                    <strong>Banque d’adjectifs :</strong>
+                    patient – responsable – organisateur – créatif – ponctuel – généreux
+                </div>
+
+
+                <div class="card">
+
+                    <h3 class="quiz-title">
+                        Exercice
+                    </h3>
+
+                    <p class="quiz-subtitle">
+                        Choisissez l’adjectif correctement accordé.
+                    </p>
+
+
+                    <div id="quizAdjectifs">
+
+                        <div class="progress-info">
+                            <span>Votre progression</span>
+                            <span id="adjProgressText">1 / 6</span>
+                        </div>
+
+                        <div class="progress-track">
+                            <div
+                                class="progress-bar"
+                                id="adjProgressBar"
+                                style="width:16.66%;">
+                            </div>
+                        </div>
+
+                        <div id="adjQuestions"></div>
+
+                        <div class="navigation">
+
+                            <button
+                                class="btn"
+                                id="adjActionBtn"
+                                type="button">
+                                Valider ma réponse
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="results" id="adjResults">
+
+                        <div class="results-box">
+
+                            <h3>Votre résultat</h3>
+
+                            <div class="score" id="adjScore">
+                                0 / 6
+                            </div>
+
+                            <p id="adjResultMessage"></p>
+
+                            <button
+                                class="btn"
+                                id="adjRestartBtn"
+                                type="button">
+                                Recommencer
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </details>
+
+
+        <details class="optional-details">
+
+            <summary>
+                3. Le caractère : qualités et défauts — Activité facultative
+            </summary>
+
+            <div class="optional-content">
+
+                <span class="optional-label">
+                    Facultative en fonction du temps
+                </span>
+
+                <div class="consigne">
+
+                    <h3>Consigne</h3>
+
+                    <p>
+                        Observez la fiche et lisez les adjectifs positifs et négatifs ainsi que les exemples.
+                    </p>
+
+                </div>
+
+
+                <div class="card image-card">
+
+                    <a
+                        class="image-link"
+                        href="https://i.postimg.cc/nz7vm71Z/French-Character-Vocabulary-Infographic.webp"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <img
+                            class="resource-image"
+                            src="https://i.postimg.cc/nz7vm71Z/French-Character-Vocabulary-Infographic.webp"
+                            alt="Vocabulaire du caractère : adjectifs positifs et négatifs">
+
+                    </a>
+
+                    <p class="image-note">
+                        Cliquez sur l’image pour l’agrandir.
+                    </p>
+
+                </div>
+
+
+                <div class="oral-box">
+
+                    <h3>À l’oral</h3>
+
+                    <p>
+                        Choisissez différents adjectifs de la fiche et répondez oralement :
+                    </p>
+
+                    <div class="oral-question">
+                        Est-ce une qualité ou un défaut ?
+                    </div>
+
+                    <div class="oral-question">
+                        Donnez un exemple.
+                    </div>
+
+                    <div class="oral-question">
+                        Cette qualité est-elle importante pour vous ?
+                    </div>
+
+                </div>
+
+            </div>
+
+        </details>
+
+    </section>
+
+</div>
+
+
+<script>
+const segments = document.querySelectorAll(".segment");
+const panels = document.querySelectorAll(".tab-panel");
+
+segments.forEach(segment => {
+
+    segment.addEventListener("click", () => {
+
+        const target = segment.dataset.tab;
+
+        segments.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        panels.forEach(panel => {
+            panel.classList.remove("active");
+        });
+
+        segment.classList.add("active");
+        document.getElementById(target).classList.add("active");
+
+    });
+
+});
+
+
+const qqData = [
+
+    {
+        text: "J’aime les personnes _____ je peux appeler quand j’ai un problème.",
+        answer: "que",
+        explanation: "« que » est suivi du sujet « je »."
+    },
+
+    {
+        text: "J’ai une amie _____ est toujours de bonne humeur.",
+        answer: "qui",
+        explanation: "« qui » est suivi directement du verbe « est »."
+    },
+
+    {
+        text: "Les qualités _____ je recherche chez un ami sont la gentillesse et l’honnêteté.",
+        answer: "que",
+        explanation: "« que » est suivi du sujet « je »."
+    },
+
+    {
+        text: "J’apprécie les personnes _____ savent respecter les différences.",
+        answer: "qui",
+        explanation: "« qui » est suivi directement du verbe « savent »."
+    },
+
+    {
+        text: "J’ai des amis _____ je rencontre souvent le week-end.",
+        answer: "que",
+        explanation: "« que » est suivi du sujet « je »."
+    },
+
+    {
+        text: "J’aime les personnes _____ sont honnêtes et sincères.",
+        answer: "qui",
+        explanation: "« qui » est suivi directement du verbe « sont »."
+    },
+
+    {
+        text: "Les personnes _____ nous invitons chez nous sont très sympathiques.",
+        answer: "que",
+        explanation: "« que » est suivi du sujet « nous »."
+    },
+
+    {
+        text: "Les amis _____ sont généreux sont importants pour moi.",
+        answer: "qui",
+        explanation: "« qui » est suivi directement du verbe « sont »."
+    },
+
+    {
+        text: "Je préfère les amis _____ je connais depuis longtemps.",
+        answer: "que",
+        explanation: "« que » est suivi du sujet « je »."
+    },
+
+    {
+        text: "Je préfère les personnes _____ aiment écouter les autres.",
+        answer: "qui",
+        explanation: "« qui » est suivi directement du verbe « aiment »."
+    }
+
+];
+
+
+const adjData = [
+
+    {
+        text: "Marc partage souvent ses affaires et aide ses amis. Il est _____.",
+        answer: "généreux",
+        options: [
+            "patient",
+            "généreux",
+            "responsable",
+            "créatif"
+        ],
+        explanation: "Marc partage souvent ses affaires et aide ses amis : il est généreux."
+    },
+
+    {
+        text: "Sophie respecte les consignes et termine toujours son travail. Elle est _____.",
+        answer: "responsable",
+        options: [
+            "responsable",
+            "patiente",
+            "créative",
+            "ponctuelle"
+        ],
+        explanation: "Sophie respecte les consignes et termine toujours son travail : elle est responsable."
+    },
+
+    {
+        text: "Nora prépare les sorties de son groupe et distribue les tâches. Elle est _____.",
+        answer: "organisatrice",
+        options: [
+            "organisateur",
+            "organisatrice",
+            "créative",
+            "responsable"
+        ],
+        explanation: "Pour parler de Nora, « organisateur » devient « organisatrice »."
+    },
+
+    {
+        text: "Clara imagine souvent de nouvelles activités. Elle est _____.",
+        answer: "créative",
+        options: [
+            "créatif",
+            "créative",
+            "patiente",
+            "organisatrice"
+        ],
+        explanation: "Pour parler de Clara, « créatif » devient « créative »."
+    },
+
+    {
+        text: "Paul arrive toujours à l’heure à ses rendez-vous. Il est _____.",
+        answer: "ponctuel",
+        options: [
+            "ponctuelle",
+            "patient",
+            "ponctuel",
+            "responsable"
+        ],
+        explanation: "Paul arrive toujours à l’heure à ses rendez-vous : il est ponctuel."
+    },
+
+    {
+        text: "Léa attend calmement son tour et ne s’énerve pas. Elle est _____.",
+        answer: "patiente",
+        options: [
+            "patient",
+            "patiente",
+            "généreuse",
+            "responsable"
+        ],
+        explanation: "Pour parler de Léa, « patient » devient « patiente »."
+    }
+
+];
+
+
+function buildQuiz(config) {
+
+    const data = config.data;
+    const questionsContainer = document.getElementById(config.questionsId);
+    const actionBtn = document.getElementById(config.actionId);
+    const progressText = document.getElementById(config.progressTextId);
+    const progressBar = document.getElementById(config.progressBarId);
+    const quiz = document.getElementById(config.quizId);
+    const results = document.getElementById(config.resultsId);
+    const scoreElement = document.getElementById(config.scoreId);
+    const resultMessage = document.getElementById(config.messageId);
+    const restartBtn = document.getElementById(config.restartId);
+
+    let current = 0;
+    let score = 0;
+    let validated = false;
+
+
+    data.forEach((item, index) => {
+
+        const question = document.createElement("div");
+
+        question.className =
+            "quiz-question" +
+            (index === 0 ? " active" : "");
+
+        const number = document.createElement("span");
+        number.className = "question-number";
+        number.textContent = "Question " + (index + 1);
+
+        const title = document.createElement("h4");
+        title.textContent = item.text;
+
+        const options = document.createElement("div");
+        options.className = "options";
+
+        const values = item.options || ["qui", "que"];
+
+        if (!item.options) {
+            options.classList.add("two-options");
+        }
+
+
+        values.forEach((value, optionIndex) => {
+
+            const option = document.createElement("div");
+            option.className = "option";
+
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = config.prefix + index;
+            input.value = value;
+            input.id =
+                config.prefix +
+                index +
+                "_" +
+                optionIndex;
+
+            const label = document.createElement("label");
+            label.setAttribute("for", input.id);
+            label.textContent = value;
+
+            option.appendChild(input);
+            option.appendChild(label);
+            options.appendChild(option);
+
+        });
+
+
+        const warning = document.createElement("div");
+        warning.className = "warning";
+        warning.textContent =
+            "Choisissez une réponse avant de continuer.";
+
+        const feedback = document.createElement("div");
+        feedback.className = "feedback";
+
+        question.appendChild(number);
+        question.appendChild(title);
+        question.appendChild(options);
+        question.appendChild(warning);
+        question.appendChild(feedback);
+
+        questionsContainer.appendChild(question);
+
+    });
+
+
+    function getQuestions() {
+        return questionsContainer.querySelectorAll(".quiz-question");
+    }
+
+
+    function updateProgress() {
+
+        progressText.textContent =
+            (current + 1) +
+            " / " +
+            data.length;
+
+        progressBar.style.width =
+            ((current + 1) / data.length * 100) +
+            "%";
+    }
+
+
+    function showQuestion(index) {
+
+        getQuestions().forEach((question, i) => {
+            question.classList.toggle("active", i === index);
+        });
+
+        validated = false;
+        actionBtn.textContent = "Valider ma réponse";
+        updateProgress();
+    }
+
+
+    function validate() {
+
+        const question = getQuestions()[current];
+
+        const selected =
+            question.querySelector(
+                'input[type="radio"]:checked'
+            );
+
+        const warning =
+            question.querySelector(".warning");
+
+        const feedback =
+            question.querySelector(".feedback");
+
+
+        if (!selected) {
+            warning.style.display = "block";
+            return;
+        }
+
+
+        warning.style.display = "none";
+
+        const correctAnswer = data[current].answer;
+
+
+        question
+            .querySelectorAll('input[type="radio"]')
+            .forEach(input => {
+
+                input.disabled = true;
+
+                const label =
+                    question.querySelector(
+                        'label[for="' +
+                        input.id +
+                        '"]'
+                    );
+
+                if (input.value === correctAnswer) {
+                    label.classList.add("correct");
+                }
+
+                if (
+                    input.checked &&
+                    input.value !== correctAnswer
+                ) {
+                    label.classList.add("incorrect");
+                }
+
+            });
+
+
+        if (selected.value === correctAnswer) {
+
+            score++;
+
+            feedback.className =
+                "feedback correct-feedback";
+
+            feedback.textContent =
+                "Bonne réponse. " +
+                data[current].explanation;
+
+        } else {
+
+            feedback.className =
+                "feedback incorrect-feedback";
+
+            feedback.textContent =
+                "La bonne réponse est « " +
+                correctAnswer +
+                " ». " +
+                data[current].explanation;
+
+        }
+
+
+        validated = true;
+
+
+        if (current === data.length - 1) {
+            actionBtn.textContent = "Voir mon résultat";
+        } else {
+            actionBtn.textContent = "Question suivante";
+        }
+    }
+
+
+    function next() {
+
+        if (current < data.length - 1) {
+
+            current++;
+            showQuestion(current);
+
+        } else {
+
+            quiz.style.display = "none";
+            results.style.display = "block";
+
+            scoreElement.textContent =
+                score + " / " + data.length;
+
+            const percentage =
+                score / data.length;
+
+
+            if (percentage === 1) {
+
+                resultMessage.textContent =
+                    "Excellent travail ! Toutes vos réponses sont correctes.";
+
+            } else if (percentage >= .8) {
+
+                resultMessage.textContent =
+                    "Très bon travail ! Vous maîtrisez bien cette activité.";
+
+            } else if (percentage >= .6) {
+
+                resultMessage.textContent =
+                    "Bon travail. Relisez les explications pour consolider vos acquis.";
+
+            } else {
+
+                resultMessage.textContent =
+                    "Relisez les explications et les exemples, puis essayez de nouveau.";
+
+            }
+        }
+    }
+
+
+    function restart() {
+
+        current = 0;
+        score = 0;
+        validated = false;
+
+
+        getQuestions().forEach(question => {
+
+            question
+                .querySelectorAll('input[type="radio"]')
+                .forEach(input => {
+
+                    input.checked = false;
+                    input.disabled = false;
+
+                });
+
+
+            question
+                .querySelectorAll("label")
+                .forEach(label => {
+
+                    label.classList.remove(
+                        "correct",
+                        "incorrect"
+                    );
+
+                });
+
+
+            const feedback =
+                question.querySelector(".feedback");
+
+            feedback.className = "feedback";
+            feedback.textContent = "";
+
+            question.querySelector(".warning").style.display = "none";
+
+        });
+
+
+        results.style.display = "none";
+        quiz.style.display = "block";
+
+        showQuestion(0);
+    }
+
+
+    actionBtn.addEventListener("click", () => {
+
+        if (!validated) {
+            validate();
+        } else {
+            next();
+        }
+
+    });
+
+
+    restartBtn.addEventListener("click", restart);
+
+    updateProgress();
+}
+
+
+buildQuiz({
+
+    data: qqData,
+
+    questionsId: "qqQuestions",
+    actionId: "qqActionBtn",
+    progressTextId: "qqProgressText",
+    progressBarId: "qqProgressBar",
+    quizId: "quizQuiQue",
+    resultsId: "qqResults",
+    scoreId: "qqScore",
+    messageId: "qqResultMessage",
+    restartId: "qqRestartBtn",
+    prefix: "qq_"
+
+});
+
+
+buildQuiz({
+
+    data: adjData,
+
+    questionsId: "adjQuestions",
+    actionId: "adjActionBtn",
+    progressTextId: "adjProgressText",
+    progressBarId: "adjProgressBar",
+    quizId: "quizAdjectifs",
+    resultsId: "adjResults",
+    scoreId: "adjScore",
+    messageId: "adjResultMessage",
+    restartId: "adjRestartBtn",
+    prefix: "adj_"
+
+});
+</script>
+
+</body>
+</html>
